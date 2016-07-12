@@ -30,8 +30,8 @@
     }
 
     body{
-        background: #dff3fd;
-        background-image: url("../../static/images/backg.jpeg");
+        background: #053958;
+        background-imag0e: url("../../static/images/backg.jpeg");
 
     }
   h3>li  {
@@ -84,15 +84,16 @@
 }
 </style>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar" >
   <div class="container-fluid">
     <div class="navbar-header">
 <h3 style="color: whitesmoke">
-       <i class="fa fa-thumbs-o-up fa-2x"> </i>
+       <i class="fa fa-bell3-slash fa-2x"> </i>
 </h3>
     </div>
   </div>
 </nav>
+
 <div class="container ">
     <div class="col-lg-6 col-lg-offset-3 panel ">
         {% block body %}
@@ -112,8 +113,8 @@
 
                         <li class=""><a href="{% url 'account_logout' %}">Sign Out</a></li>
                     {% else %}
-                        <li role="presentation" class=""><a href="{% url 'account_login' %}">Sign In</a></li>
-                        <li role="presentation" class=""> <a href="{% url 'account_signup' %}">Sign Up</a></li>
+                        <li role="presentation" class="active"><a href="{% url 'account_login' %}" data-toggle="tab">Sign In</a></li>
+                        <li role="presentation" class=""> <a href="{% url 'account_signup' %}" data-toggle="tab">Sign Up</a></li>
                     {% endif %}
                 </ul>
             </div>
