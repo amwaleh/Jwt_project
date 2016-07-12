@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'bower_components/font-awesome/css/font-awesome.css' %}">
+    <script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>
+
+    <title>{% block head_title %}{% endblock %}</title>
+
+    {% block extra_head %}
+    {% endblock %}
+</head>
+
+<style>
+    label {
+        width: 150px;
+        font-weight: 300;
+        font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    }
+
+    input[type="text"],input[type="email"],input[type="password"] {
+        width: 100%;
+        height: 3em;
+        border: 0;
+    }
+
+    .errorlist {
+        color: #ff0000;
+    }
+
+    body{
+        background: #dff3fd;
+        background-image: url("../../static/images/backg.jpeg");
+
+    }
+  h3>li  {
+      border : 1px solid #a6bdc6;
+      padding: 4px;
+	background-color: white;
+	border-radius: 0.9rem;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 1.4rem;
+	margin:2px;
+      font-family: "Roboto",  Verdana, Arial, sans-serif;
+      box-shadow: black 1px 1px 1px;
+}
+
+/* Circle */
+ h3>li a{
+	display: inline-block;
+}
+ h3>li :hover a {
+
+
+	margin: 1.8rem;
+}
+.twitter a {
+	background-color: #4099ff;
+}
+.facebook a {
+	background-color: #3B5998;
+}
+.google a {
+	background-color: #db5a3c;
+}
+
+/* Icons */
+
+ h3>li  .twitter {
+	color: #4099ff;
+}
+ h3>li  .facebook {
+	color: #3B5998;
+}
+ h3>li  .google {
+	color: #db5a3c;
+}
+ h3>li :hover .twitter,
+ h3>li :hover .facebook,
+ h3>li :hover .google {
+	color: gold;
+}
+</style>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+<h3 style="color: whitesmoke">
+       <i class="fa fa-thumbs-o-up fa-2x"> </i>
+</h3>
+    </div>
+  </div>
+</nav>
+<div class="container ">
+    <div class="col-lg-6 col-lg-offset-3 panel ">
+        {% block body %}
+            {% if messages %}
+                <div>
+                    <strong>Messages:</strong>
+                    <ul class="list-group">
+                        {% for message in messages %}
+                            <li class="list-group-item">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <div class="">
+                <ul class="nav nav-tabs nav-justified">
+                    {% if user.is_authenticated %}
+
+                        <li class=""><a href="{% url 'account_logout' %}">Sign Out</a></li>
+                    {% else %}
+                        <li role="presentation" class=""><a href="{% url 'account_login' %}">Sign In</a></li>
+                        <li role="presentation" class=""> <a href="{% url 'account_signup' %}">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="">
+                {% block content %}
+                {% endblock %}
+            </div>
+        {% endblock %}
+        {% block extra_body %}
+        {% endblock %}
+
+    </div>
+</div>
+</body>
+</html>

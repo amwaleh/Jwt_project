@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load account %}
+<h1>
+Welcome  {% user_display user %}
+
+</h1>
+<img src="{{ user.socialaccount_set.all.0.get_thumbnail_url }}" class="img-circle center-block" />
+
+
+
+<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Adipisci alias atque blanditiis debitis eaque et exercitationem,
+    expedita harum iusto libero magni modi molestiae numquam quaerat
+    qui recusandae tempora, ut, vitae.
+</p>
+<p>
+
+{% load account %}
+
+{% user_display user as user_display %}
+{% block trans %}{{ user_display }} has logged in...
+{% endblock %}
+
+
+</p>
+
+
+{% endblock %}
