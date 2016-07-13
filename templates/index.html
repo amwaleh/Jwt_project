@@ -2,29 +2,29 @@
 
 {% block content %}
 {% load account %}
-<h1>
+
+    <div class="pull-left col-lg-4  ">
+<img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" class="img-rounded center-block" width="400px" />
+
+</div>
+<div class="pull-right col-lg-6">
+<h4>
 Welcome  {% user_display user %}
 
-</h1>
-<img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" class="img-circle center-block" />
-
-
-
-<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+</h4>
+<p class="">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
     Adipisci alias atque blanditiis debitis eaque et exercitationem,
     expedita harum iusto libero magni modi molestiae numquam quaerat
     qui recusandae tempora, ut, vitae.
 </p>
+
 <p>
-
 {% load account %}
-
 {% user_display user as user_display %}
 {% block trans %}{{ user_display }} has logged in...
 {% endblock %}
-
-
 </p>
-
+</div>
 
 {% endblock %}

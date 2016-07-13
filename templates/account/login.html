@@ -35,10 +35,10 @@
 
 
         <a class=" text-center" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-        <button class=" center-block btn btn-success btn-lg" type="submit">{% trans "Sign In" %}</button><div class="socialaccount_ballot">
+        <button class="center-block btn btn-success btn-lg" type="submit">{% trans "Sign In" %}</button><div class="socialaccount_ballot">
     <br>
            <p class="text-center"> click to login with your social media account:</p>
-            <div class="  socialaccount_providers text-center">
+            <div class="socialaccount_providers text-center">
                 <h3>
                     {% include "socialaccount/snippets/provider_list.html" with process="login" %}
                 </h3>

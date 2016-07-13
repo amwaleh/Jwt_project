@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'bower_components/font-awesome/css/font-awesome.css' %}">
     <script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
 
     <title>{% block head_title %}{% endblock %}</title>
 
@@ -22,7 +24,8 @@
     input[type="text"],input[type="email"],input[type="password"] {
         width: 100%;
         height: 3em;
-        border: 0;
+        border:1px solid rgba(30, 152, 169, 0.37);
+        border-radius: 4px ;
     }
 
     .errorlist {
@@ -31,9 +34,13 @@
 
     body{
         background: #053958;
-        background-imag0e: url("../../static/images/backg.jpeg");
+        background-image: url("../../static/images/backg.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+
 
     }
+
   h3>li  {
       border : 1px solid #a6bdc6;
       padding: 4px;
@@ -82,6 +89,12 @@
  h3>li :hover .google {
 	color: gold;
 }
+
+.nav-tabs.nav-justified > li > a {
+    border-bottom: 1px solid #1e98a9;
+    border-radius: 4px 4px 0 0;
+}
+
 </style>
 
 <nav class="navbar" >
@@ -113,8 +126,8 @@
 
                         <li class=""><a href="{% url 'account_logout' %}">Sign Out</a></li>
                     {% else %}
-                        <li role="presentation" class="active"><a href="{% url 'account_login' %}" data-toggle="tab">Sign In</a></li>
-                        <li role="presentation" class=""> <a href="{% url 'account_signup' %}" data-toggle="tab">Sign Up</a></li>
+                        <li class=""><a href="{% url 'account_login' %}" >Sign In</a></li>
+                        <li> <a href="{% url 'account_signup' %}" >Sign Up</a></li>
                     {% endif %}
                 </ul>
             </div>

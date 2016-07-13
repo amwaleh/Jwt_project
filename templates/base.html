@@ -30,33 +30,65 @@
     }
 
     body {
-        background: #05435d;
-        background-image: url("../static/images/backg.jpeg");
+        background: #053958;
+        background-image: url("../../static/images/backg.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
 
     }
 
+    .navbar-inverse {
+        background-color: rgba(254, 254, 255, 0.55);
+        border-color: rgba(8, 8, 8, 0.36);
+    }
+
+    .signin {
+        margin-top: 10px;
+        margin-right: 20px;
+        float: right;
+
+    }
+
+    .Absolute-Center {
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    .thumb > img {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
 </style>
 {% load account %}
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
             <h3 style="color: whitesmoke">
-                <i class="fa fa-thumbs-o-up fa-1x"> </i>
+                <i class="fa fa-magnet fa-1x"> </i>
             </h3>
         </div>
-        <div class="pull-right text-success ver">
+        <div class="signin  col-lg-3">
 
             {% if user.is_authenticated %}
-                Logged in as : {% user_display user %}
-                <a href="/accounts/logout/">
-                <i class="fa fa-sign-out fa-2x"></i></a>
+                <div class="col-lg-6 thumb">
+                    <img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" class="img-circle center-block"
+                         width="60px" alt="{% user_display user %}"/>
 
-                    {% endif %}
-            </div>
+                </div>
+                <div class="col-lg-6">
+                    <a href="/accounts/logout/">
+                        <i class="fa fa-sign-out fa-3x"></i></a>
+                </div>
+
+            {% endif %}
+        </div>
     </div>
     </div>
 </nav>
-
 <div class="container ">
     <div class="col-lg-9 col-lg-offset-1 panel ">
         {% block body %}
@@ -75,7 +107,6 @@
         {% endblock %}
         {% block extra_body %}
         {% endblock %}
-
     </div>
 </div>
 </body>
